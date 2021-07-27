@@ -2,11 +2,10 @@
 #include <iostream>
 #include <string>
 using namespace mysqlpp;
-
+using namespace std;
 int main() {
-	
 	mysqlpp::Connection con(false);//定义了mysql连接对象；
-	con.set_option(new SetCharsetNameOption("gbk"));//设置字符编码为uft8
+	con.set_option(new mysqlpp::SetCharsetNameOption("gbk"));//设置字符编码为uft8
 	if (!con.connect("test", "localhost", "root", "root", 3306)) {
 		cout << "数据库链接失败" << endl;
 		return 0;
@@ -23,12 +22,13 @@ int main() {
 		cout << "4.修改账户" << endl;
 		cout << "5.查找账户" << endl;
 		cin >> nchoice;
+		getchar();
 		switch (nchoice){
 		case 0:
 			return  0; break;
 		case 1: {
 			cout << "请输入要新建的账号名" << endl;
-			cin >> strAccount;
+			getline(cin,strAccount);
 			InsertAccount(con, strAccount);
 		}break;
 		case 2: {
@@ -36,19 +36,19 @@ int main() {
 		}break;
 		case 3: {
 			cout << "请输入要删除的账号名" << endl;
-			cin >> strDelAccount;
+			getline(cin, strDelAccount);
 			DeleteByAccount(con, strDelAccount);
 		}break;
 		case 4: {
 			cout << "请输入要修改的账号名" << endl;
-			cin >> strAccount;
+			getline(cin, strAccount);
 			cout << "请输入修改后的账号名" << endl;
-			cin >> strNewAccount;
+			getline(cin, strNewAccount);
 			UpdateByAccount(con, strNewAccount, strAccount);
 		}break; 
 		case 5: {
 			cout << "请输入要查找的账号名" << endl;
-			cin >> strAccount;
+			getline(cin, strAccount);
 			if (!SearchByColumnData(con, "account", strAccount)) {
 				cout << "查无此人" << endl;
 			}
@@ -57,7 +57,6 @@ int main() {
 			cout << "功能选择失败，请重新选择" << endl;
 		}break;
 		}
-
 		system("pause");
 	}
 	return 0;

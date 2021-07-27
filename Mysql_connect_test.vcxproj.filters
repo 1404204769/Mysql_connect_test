@@ -27,6 +27,9 @@
     <ClCompile Include="DBS.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="test_s.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DB.h">
