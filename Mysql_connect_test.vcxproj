@@ -154,6 +154,9 @@
     <ClInclude Include="DB.h" />
     <ClInclude Include="DBS.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="d_test数据库.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
